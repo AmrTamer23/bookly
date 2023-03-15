@@ -10,10 +10,6 @@ class BookRating extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Text(
-          "19.99\$",
-          style: TextStyle(fontSize: 20),
-        ),
         const Spacer(),
         const Icon(
           FontAwesomeIcons.solidStar,

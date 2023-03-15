@@ -51,7 +51,16 @@ class BestSellerBook extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                const BookRating(),
+                Row(
+                  children: const [
+                    Text(
+                      "19.99\$",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Expanded(child: BookRating()),
+                  ],
+                ),
               ],
             ),
           ),
