@@ -1,48 +1,55 @@
 import 'package:bookly/core/utils/assets.dart';
+import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentation/views/widgets/featured_list_view_book.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:google_fonts/google_fonts.dart';
+import 'best_seller_book.dart';
+import 'best_seller_list_view.dart';
 import 'custom_app_bar.dart';
+import 'featured_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 50, left: 24, right: 24),
-      child: Column(
-        children: const [
-          CustomAppBar(),
-          SizedBox(
-            height: 15,
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Padding(
+                padding: EdgeInsets.only(top: 50, right: 24, left: 24),
+                child: CustomAppBar(),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              FeaturedBooksListView(),
+              SizedBox(
+                height: 45,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24),
+                child: Text(
+                  "Best Seller",
+                  style: Styles.titleM,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+            ],
           ),
-          FeaturedBooksListView()
-        ],
-      ),
-    );
-  }
-}
-
-class FeaturedBooksListView extends StatelessWidget {
-  const FeaturedBooksListView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.27,
-      child: ListView.builder(
-          itemCount: 10,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8),
-              child: FeaturedListViewBookItem(),
-            );
-          }),
+        ),
+        const SliverToBoxAdapter(
+          child: BestSellerListView(),
+        ),
+      ],
     );
   }
 }
