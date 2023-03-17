@@ -16,40 +16,42 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Padding(
-                padding: EdgeInsets.only(top: 50, right: 24, left: 24),
-                child: CustomAppBar(),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              FeaturedBooksListView(),
-              SizedBox(
-                height: 45,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24),
-                child: Text(
-                  "Best Seller",
-                  style: Styles.titleM,
+    return SafeArea(
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Padding(
+                  padding: EdgeInsets.only(top: 20, right: 24, left: 24),
+                  child: CustomAppBar(),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-            ],
+                SizedBox(
+                  height: 15,
+                ),
+                FeaturedBooksListView(),
+                SizedBox(
+                  height: 45,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  child: Text(
+                    "Best Seller",
+                    style: Styles.titleM,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
           ),
-        ),
-        const SliverToBoxAdapter(
-          child: BestSellerListView(),
-        ),
-      ],
+          const SliverToBoxAdapter(
+            child: BestSellerListView(),
+          ),
+        ],
+      ),
     );
   }
 }
