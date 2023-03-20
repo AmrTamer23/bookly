@@ -5,15 +5,17 @@ import 'books_actions.dart';
 import 'custom_book_image.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
-
+  const BookDetailsSection({super.key, this.id});
+  final id;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         SizedBox(
             height: MediaQuery.of(context).size.height * .3,
-            child: const CustomBookImage()),
+            child: const CustomBookImage(
+              imageLink: '',
+            )),
         const SizedBox(
           height: 40,
         ),

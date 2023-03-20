@@ -7,12 +7,14 @@ import 'package:bookly/features/home/presentation/views/widgets/best_seller_book
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'core/utils/my_bloc_observer.dart';
 import 'core/utils/service_locater.dart';
 import 'features/splash/presentation/views/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   setupServiceLocater();
+  Bloc.observer = MyBlocObserver();
   runApp(const BooklyApp());
 }
 
@@ -24,7 +26,8 @@ class BooklyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) =>
+              FeaturedBooksCubit(getIt.get<HomeRepoImpl>())..featuredBooks(),
         ),
         BlocProvider(
           create: (context) => BestSellerBooksCubit(getIt.get<HomeRepoImpl>()),
