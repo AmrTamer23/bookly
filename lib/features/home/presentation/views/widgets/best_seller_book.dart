@@ -1,11 +1,13 @@
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../../data/models/book_model.dart';
 import 'book_rating.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class BestSellerBook extends StatelessWidget {
-  const BestSellerBook({super.key});
-
+  const BestSellerBook({super.key, required this.book});
+  final Book book;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -15,17 +17,13 @@ class BestSellerBook extends StatelessWidget {
         child: Row(
           children: [
             AspectRatio(
-              aspectRatio: 0.666,
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.amber,
+                aspectRatio: 0.666,
+                child: ClipRRect(
                     borderRadius: BorderRadius.circular(16),
-                    image: const DecorationImage(
-                        image: NetworkImage(
-                            "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1458747997i/22847284.jpg"),
-                        fit: BoxFit.fill)),
-              ),
-            ),
+                    child: CachedNetworkImage(
+                      imageUrl: book.image,
+                      fit: BoxFit.fill,
+                    ))),
             const SizedBox(
               width: 30,
             ),
@@ -37,17 +35,19 @@ class BestSellerBook extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text(
-                    "Grokking Algorithms An Illustrated Guide For Programmers and Other Curious People",
+                  Text(
+                    book.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: 20, fontFamily: 'GT'),
+                    style: const TextStyle(fontSize: 20, fontFamily: 'GT'),
                   ),
                   const SizedBox(
                     height: 5,
                   ),
                   Text(
-                    "Aditya Y. Bhargava",
+                    book.authors,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
                     style: TextStyle(
                         fontSize: 14, color: Colors.white.withOpacity(0.7)),
                   ),
@@ -58,9 +58,11 @@ class BestSellerBook extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
                       Text(
-                        "19.99\$",
+                        "Free",
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green),
                       ),
                       Expanded(child: BookRating()),
                     ],
