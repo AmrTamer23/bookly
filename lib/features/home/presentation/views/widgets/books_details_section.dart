@@ -1,31 +1,33 @@
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
 
+import '../../../data/models/book_model.dart';
 import 'books_actions.dart';
 import 'custom_book_image.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key, this.id});
-  final id;
+  const BookDetailsSection({super.key, required this.book});
+  final Book book;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         SizedBox(
             height: MediaQuery.of(context).size.height * .3,
-            child: const CustomBookImage(
-              imageUrl: '',
+            child: CustomBookImage(
+              imageUrl: book.image,
             )),
         const SizedBox(
           height: 40,
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Text(
-            "Grokking Algorithms An Illustrated Guide For Programmers and Other Curious People",
+            book.title,
+            textAlign: TextAlign.center,
             maxLines: 4,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 30,
               fontFamily: 'GT',
             ),
@@ -35,7 +37,8 @@ class BookDetailsSection extends StatelessWidget {
           height: 6,
         ),
         Text(
-          "Aditya Y. Bhargava",
+          book.authors,
+          textAlign: TextAlign.center,
           style: TextStyle(
               fontSize: 18,
               color: Colors.white.withOpacity(0.7),
@@ -48,9 +51,11 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(
           height: 37,
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 37),
-          child: BookActions(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 37),
+          child: BookActions(
+            link: book.url,
+          ),
         ),
       ],
     );

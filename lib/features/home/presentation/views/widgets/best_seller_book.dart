@@ -13,7 +13,10 @@ class BestSellerBook extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 2.8,
       child: GestureDetector(
-        onTap: () => GoRouter.of(context).push(AppRouter.kBookDetailsViewRoute),
+        onTap: () {
+          GoRouter.of(context)
+              .push(AppRouter.kBookDetailsViewRoute, extra: book);
+        },
         child: Row(
           children: [
             AspectRatio(
