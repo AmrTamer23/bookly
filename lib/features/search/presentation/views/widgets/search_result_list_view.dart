@@ -17,7 +17,9 @@ class SearchResultListView extends StatelessWidget {
         if (state is SearchLoading) {
           return SizedBox(
             height: MediaQuery.of(context).size.height * 0.27,
-            child: const LoadingIndicator(),
+            child: const LoadingIndicator(
+              shimmerText: 'Searching For You',
+            ),
           );
         } else if (state is SearchDone) {
           return ListView.builder(

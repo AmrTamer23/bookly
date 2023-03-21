@@ -16,7 +16,9 @@ class BestSellerListView extends StatelessWidget {
         if (state is BestSellerBooksLoading) {
           return SizedBox(
             height: MediaQuery.of(context).size.height * 0.27,
-            child: const LoadingIndicator(),
+            child: const LoadingIndicator(
+              shimmerText: 'For You',
+            ),
           );
         } else if (state is BestSellerBooksDone) {
           return ListView.builder(

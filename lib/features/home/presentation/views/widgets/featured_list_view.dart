@@ -17,7 +17,9 @@ class FeaturedBooksListView extends StatelessWidget {
         if (state is FeaturedBooksLoading) {
           return SizedBox(
             height: MediaQuery.of(context).size.height * 0.27,
-            child: const LoadingIndicator(),
+            child: const LoadingIndicator(
+              shimmerText: 'Getting Books',
+            ),
           );
         } else if (state is FeaturedBooksDone) {
           return SizedBox(

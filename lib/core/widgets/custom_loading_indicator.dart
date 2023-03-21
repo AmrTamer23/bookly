@@ -1,15 +1,28 @@
+import 'package:bookly/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:shimmer/shimmer.dart';
 
 class LoadingIndicator extends StatelessWidget {
-  const LoadingIndicator({super.key});
-
+  const LoadingIndicator({super.key, required this.shimmerText});
+  final String shimmerText;
   @override
   Widget build(BuildContext context) {
-    return const Center(
-        child: CircularProgressIndicator(
-      color: Colors.white,
-    ));
+    return Scaffold(
+      body: Center(
+        child: Shimmer.fromColors(
+          baseColor: Colors.white,
+          highlightColor: kPrimaryColor,
+          period: const Duration(milliseconds: 1500),
+          child: Text(
+            shimmerText,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 40.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

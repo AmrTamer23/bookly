@@ -19,7 +19,9 @@ class SimilarBooksListView extends StatelessWidget {
         if (state is SimilarBooksLoading) {
           return SizedBox(
             height: MediaQuery.of(context).size.height * 0.27,
-            child: const LoadingIndicator(),
+            child: const LoadingIndicator(
+              shimmerText: 'Analyzing your taste',
+            ),
           );
         } else if (state is SimilarBooksDone) {
           return SizedBox(
