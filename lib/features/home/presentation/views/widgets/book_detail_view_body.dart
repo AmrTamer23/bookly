@@ -7,7 +7,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/utils/service_locater.dart';
-import '../../../data/models/book_model.dart';
+import '../../../../../core/models/book_model.dart';
 import '../../../data/repos/home_repo_impl.dart';
 import 'books_actions.dart';
 import '../../../../../core/widgets/custom_button.dart';

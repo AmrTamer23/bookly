@@ -6,7 +6,8 @@ import 'package:bookly/features/home/presentation/views/home_view.dart';
 import 'package:bookly/features/search/presentation/views/search_view.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/home/data/models/book_model.dart';
+import '../../constants.dart';
+import '../models/book_model.dart';
 import '../../features/home/data/repos/home_repo_impl.dart';
 import '../../features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
@@ -34,8 +35,7 @@ abstract class AppRouter {
           return CustomTransitionPage(
             key: state.pageKey,
             child: BlocProvider(
-              create: (context) =>
-                  SimilarBooksCubit((getIt.get<HomeRepoImpl>())),
+              create: (context) => SimilarBooksCubit((homeRepoLocli)),
               child: BookDetailView(
                 book: state.extra as Book,
               ),

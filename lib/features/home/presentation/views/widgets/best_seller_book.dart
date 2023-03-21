@@ -1,7 +1,7 @@
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../../data/models/book_model.dart';
+import '../../../../../core/models/book_model.dart';
 import 'book_rating.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 

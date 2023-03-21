@@ -10,7 +10,7 @@ class CustomTextField extends StatelessWidget {
       this.hint,
       this.obscure = false,
       this.maxlines = 1,
-      this.onSaved,
+      this.onSubmitted,
       this.initialValue = '',
       this.suffIcon});
 
@@ -19,25 +19,17 @@ class CustomTextField extends StatelessWidget {
   final bool? obscure;
   final int? maxlines;
   final String? initialValue;
-  final void Function(String?)? onSaved;
+  final void Function(String?)? onSubmitted;
   final Widget? suffIcon;
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
-    return TextFormField(
-      onSaved: onSaved,
-      initialValue: initialValue,
+    return TextField(
       obscureText: obscure!,
+      onSubmitted: onSubmitted,
       onChanged: onChanged,
       maxLines: maxlines,
       cursorColor: Colors.amber,
-      validator: (data) {
-        if (data!.isEmpty) {
-          return "Shouldn't Be Empty";
-        } else {
-          return null;
-        }
-      },
       decoration: InputDecoration(
         hintText: hint,
         suffixIcon: suffIcon,
