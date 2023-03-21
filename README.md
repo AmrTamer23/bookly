@@ -1,5 +1,12 @@
-![InstaMocks_20230322_004444860-PhotoRoom png-PhotoRoom](https://user-images.githubusercontent.com/122938074/226766079-7afa926d-bf82-4568-b9b8-f3911cc246af.png)
-![InstaMocks_20230322_004442352-PhotoRoom png-PhotoRoom](https://user-images.githubusercontent.com/122938074/226766088-4cd0b936-9481-406c-9d04-7447f9264aba.png)
-![InstaMocks_20230322_004440927-PhotoRoom png-PhotoRoom](https://user-images.githubusercontent.com/122938074/226766091-07d152b3-ecdf-4637-b0ac-267efa2514ee.png)
-![InstaMocks_20230322_004438996-PhotoRoom png-PhotoRoom](https://user-images.githubusercontent.com/122938074/226766093-9d1da4ff-c047-4e77-bf62-adef58f0e0d5.png)
-![InstaMocks_20230322_004443463-PhotoRoom png-PhotoRoom](https://user-images.githubusercontent.com/122938074/226766128-8562fc6c-747f-477b-9e3f-0fa6d2efc29c.png)
+Bookly is an app that allows you to download free books science related, In this project, I dealt with :
+✅ APIs
+✅ MVVM Arch
+✅ Bloc state management (cubit)
+✅ Clean Code
+✅ Solid Principles
+✅ Dependency Injection
+✅ pagination
+✅ Error Handling
+✅ Launch Custom URL
+![1](https://user-images.githubusercontent.com/122938074/226766416-73a518f4-7324-4821-bb30-68605ff0fc8f.png)
+![2](https://user-images.githubusercontent.com/122938074/226766475-49c3c505-7b0d-43d0-9dcb-fbdfc34fc056.png)
