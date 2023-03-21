@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/service_locater.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bookly/features/home/presentation/views/book_detail_view.dart';
 import 'package:bookly/features/home/presentation/views/home_view.dart';
@@ -24,17 +25,37 @@ abstract class AppRouter {
       builder: (context, state) => const HomeView(),
     ),
     GoRoute(
-      path: kBookDetailsViewRoute,
-      builder: (context, state) => BlocProvider(
-        create: (context) => SimilarBooksCubit(getIt.get<HomeRepoImpl>()),
-        child: BookDetailView(
-          book: state.extra as Book,
-        ),
-      ),
-    ),
-    GoRoute(
       path: kSearchViewRoute,
       builder: (context, state) => const SearchView(),
     ),
+    GoRoute(
+        path: kBookDetailsViewRoute,
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: BlocProvider(
+              create: (context) =>
+                  SimilarBooksCubit((getIt.get<HomeRepoImpl>())),
+              child: BookDetailView(
+                book: state.extra as Book,
+              ),
+            ),
+            transitionDuration: const Duration(milliseconds: 500),
+            transitionsBuilder: (_, a, __, c) =>
+                FadeTransition(opacity: a, child: c),
+          );
+        }),
   ]);
 }
+
+/*GoRoute(
+  path: '/page2',
+  pageBuilder: (_, state) {
+    return CustomTransitionPage(
+      key: state.pageKey,
+      child: Page2(),
+      transitionDuration: Duration(seconds: 2),
+      transitionsBuilder: (_, a, __, c) => FadeTransition(opacity: a, child: c),
+    );
+  },
+// */
