@@ -11,10 +11,6 @@ Bookly is an app that allows you to download free books science related, In this
 
 ✅ Solid Principles
 
-✅ Dependency Injection
-
-✅ pagination
-
 ✅ Error Handling
 
 ✅ Launch Custom URL
